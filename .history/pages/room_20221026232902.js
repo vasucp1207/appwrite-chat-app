@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/rules-of-hooks */
 import React, { useEffect, useRef, useState } from 'react'
 import { database, account } from '../appwrite/appwrite'
 import { v4 as uuid } from 'uuid';

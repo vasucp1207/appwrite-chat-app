@@ -1,33 +1,25 @@
-/* eslint-disable react-hooks/rules-of-hooks */
 import React, { useState } from 'react'
 import Link from 'next/link'
 import { account } from '../appwrite/appwrite'
-import { v4 as uuid } from 'uuid';
 import { useRouter } from 'next/router';
 
-function signUp() {
+function login() {
 
     const [user, setUser] = useState({
-        name: "",
         email: "",
         password: ""
     })
 
     const router = useRouter();
 
-    const signUp = (e) => {
+    const login = (e) => {
         e.preventDefault()
 
-        const promise = account.create(
-            uuid(),
-            user.email,
-            user.password,
-            user.name
-        )
+        const promise = account.createEmailSession(user.email, user.password);
 
         promise.then(function (response) {
             // console.log(response)
-            router.push('/login')
+            router.push('/room')
         }, function (error) {
             console.log(error)
         })
@@ -35,28 +27,14 @@ function signUp() {
 
     return (
         <div class='cont'>
-            <div class="main-cont signup">
-                <div class='form-title'>SignUp</div>
-                <div class='fields'>
-                    <p>User Name</p>
-                    <input
-                        required
-                        type='text'
-                        placeholder='Enter your name'
-                        onChange={(e) => {
-                            setUser({
-                              ...user,
-                              name: e.target.value
-                            })
-                          }}
-                    />
-                </div>
+            <div class="main-cont login">
+                <div class='form-title'>Login</div>
                 <div class='fields'>
                     <p>Email</p>
                     <input
-                        required
                         type='email'
-                        placeholder='Enter your email'
+                        placeholder='Enter your email' 
+                        required
                         onChange={(e) => {
                             setUser({
                               ...user,
@@ -68,8 +46,8 @@ function signUp() {
                 <div class='fields'>
                     <p>Password</p>
                     <input
-                        required
                         placeholder='Enter your password'
+                        required
                         type='password'
                         onChange={(e) => {
                             setUser({
@@ -80,12 +58,12 @@ function signUp() {
                     />
                 </div>
                 <div class='footer'>
-                    <button class='submit-btn' onClick={signUp}>SignUp</button>
-                    <Link href='/login' class='links'>Have an Account!</Link>
+                    <button class='submit-btn' onClick={login}>Login</button>
+                    <Link class='links' href='/signup'>Create an Account?</Link>
                 </div>
             </div>
         </div>
     )
 }
 
-export default signUp
+export default login

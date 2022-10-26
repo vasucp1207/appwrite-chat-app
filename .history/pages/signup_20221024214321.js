@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/rules-of-hooks */
 import React, { useState } from 'react'
 import Link from 'next/link'
 import { account } from '../appwrite/appwrite'
