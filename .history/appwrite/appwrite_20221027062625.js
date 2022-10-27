@@ -9,5 +9,6 @@ const database = new Databases(client, '635361898603a91fe6f6')
 export{
     client,
     account,
-    database
+    database,
+    avatar
 }

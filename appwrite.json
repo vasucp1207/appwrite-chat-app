@@ -1,0 +1,42 @@
+{
+    "projectId": "6351b10aa89690061fa4",
+    "projectName": "chatApp",
+    "collections": [
+        {
+            "$id": "63588a7521ae65bb754b",
+            "$createdAt": "2022-10-26T01:16:37.138+00:00",
+            "$updatedAt": "2022-10-26T01:16:47.668+00:00",
+            "$permissions": [
+                "create(\"any\")",
+                "read(\"any\")",
+                "update(\"any\")",
+                "delete(\"any\")"
+            ],
+            "databaseId": "635361898603a91fe6f6",
+            "name": "message1",
+            "enabled": true,
+            "documentSecurity": false,
+            "attributes": [
+                {
+                    "key": "message",
+                    "type": "string",
+                    "status": "available",
+                    "required": true,
+                    "array": false,
+                    "size": 200,
+                    "default": null
+                },
+                {
+                    "key": "emailId",
+                    "type": "string",
+                    "status": "available",
+                    "required": true,
+                    "array": false,
+                    "size": 200,
+                    "default": null
+                }
+            ],
+            "indexes": []
+        }
+    ]
+}
