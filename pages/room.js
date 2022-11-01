@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import React, { useEffect, useRef, useState } from 'react'
 import { database, account } from '../appwrite/appwrite'
-import { v4 as uuid } from 'uuid';
+import { ID } from 'appwrite'
 import Chat from '../components/Chat';
 import { useRouter } from 'next/router';
 
@@ -36,7 +36,7 @@ function room() {
     const sendMessage = (e) => {
         e.preventDefault()
 
-        const promise = database.createDocument('635361898603a91fe6f6', '63588a7521ae65bb754b', uuid(),
+        const promise = database.createDocument('635361898603a91fe6f6', '63588a7521ae65bb754b', ID.unique(),
             {
                 message: message,
                 emailId: user.email

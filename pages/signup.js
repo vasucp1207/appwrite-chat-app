@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
 import { account } from '../appwrite/appwrite'
-import { v4 as uuid } from 'uuid';
+import { ID } from 'appwrite'
 import { useRouter } from 'next/router';
 
 function signUp() {
@@ -19,7 +19,7 @@ function signUp() {
         e.preventDefault()
 
         const promise = account.create(
-            uuid(),
+            ID.unique(),
             user.email,
             user.password,
             user.name
