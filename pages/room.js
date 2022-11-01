@@ -6,7 +6,6 @@ import Chat from '../components/Chat';
 import { useRouter } from 'next/router';
 
 function room() {
-
     const [user, setUser] = useState()
     const [message, setMessage] = useState("")
     const [allMessages, setAllMessages] = useState([])
